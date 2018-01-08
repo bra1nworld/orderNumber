@@ -147,8 +147,3 @@ namespace OrderNumber {
         return index
     }
 }
-
-console.log(OrderNumber.between("a", "c", 1))
-console.log(OrderNumber.between("a", "ai", 1))
-console.log(OrderNumber.between("a", "d", 2))
-console.log(OrderNumber.between("a", "z", 50))
