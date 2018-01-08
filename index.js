@@ -2,8 +2,8 @@ var OrderNumber;
 (function (OrderNumber) {
     var orderStr = "0123456789abcdefghijklmnopqrstuvwxyz";
     var strLength = orderStr.length;
-    var minInSpace = orderStr[0];
-    var maxInSpace = orderStr[strLength - 1];
+    OrderNumber.minInSpace = orderStr[0];
+    OrderNumber.maxInSpace = orderStr[strLength - 1];
 
     function compare(a, b) {
         if (getIndex(a) - getIndex(b) > 0) {
@@ -17,7 +17,7 @@ var OrderNumber;
     OrderNumber.compare = compare;
 
     function between(a, b, count) {
-        if (compare(a, minInSpace) === -1 || b[0] === maxInSpace && b.length > 1) {
+        if (compare(a, OrderNumber.minInSpace) === -1 || b[0] === OrderNumber.maxInSpace && b.length > 1) {
             console.error("out of range");
             return;
         }
@@ -33,8 +33,8 @@ var OrderNumber;
                 }
                 return result;
             } else {
-                var aScaleIndex = getIndex(a + minInSpace) + 1,
-                    bScaleIndex = getIndex(b + minInSpace),
+                var aScaleIndex = getIndex(a + OrderNumber.minInSpace) + 1,
+                    bScaleIndex = getIndex(b + OrderNumber.minInSpace),
                     scaleDistance = bScaleIndex - aScaleIndex;
                 if (scaleDistance <= count) {
                     result = between(getStrByIndex(aScaleIndex), getStrByIndex(bScaleIndex - 1), count);
@@ -51,7 +51,7 @@ var OrderNumber;
             var bScale = b;
             var num = 0;
             while (a.length - b.length - num > 0) {
-                bScale += minInSpace;
+                bScale += OrderNumber.minInSpace;
                 num++;
             };
             return between(a, bScale, count);
@@ -59,7 +59,7 @@ var OrderNumber;
             var aScale = a;
             var num = 0;
             while (b.length - a.length - num > 0) {
-                aScale += minInSpace;
+                aScale += OrderNumber.minInSpace;
                 num++;
             };
             return between(aScale, b, count);

@@ -2,8 +2,8 @@ type OrderNumber = string
 namespace OrderNumber {
     const orderStr = "0123456789abcdefghijklmnopqrstuvwxyz";
     const strLength = orderStr.length;
-    const minInSpace = orderStr[0];                 //"0"
-    const maxInSpace = orderStr[strLength - 1];     //"z"
+    export const minInSpace = orderStr[0];                 //"0"
+    export const maxInSpace = orderStr[strLength - 1];     //"z"
 
     /**
      * a>b => 1
