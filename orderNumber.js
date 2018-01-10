@@ -37,7 +37,7 @@ var OrderNumber;
      * @memberof SortClass
      */
     function between(a, b, count) {
-        if (compare(a, OrderNumber.minInSpace) === -1 || b[0] === OrderNumber.maxInSpace && b.length > 1) {
+        if (compare(a, OrderNumber.minInSpace) === -1 || b[0] === OrderNumber.maxInSpace && b[1] != OrderNumber.minInSpace) {
             console.error("out of range");
             return;
         }

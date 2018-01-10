@@ -35,7 +35,7 @@ namespace OrderNumber {
      * @memberof SortClass
      */
     export function between(a: OrderNumber, b: OrderNumber, count: number): OrderNumber[] {
-        if (compare(a, minInSpace) === -1 || b[0] === maxInSpace && b.length > 1) {
+        if (compare(a, minInSpace) === -1 || b[0] === maxInSpace && b[1] != minInSpace) {
             console.error("out of range")
             return
         }
